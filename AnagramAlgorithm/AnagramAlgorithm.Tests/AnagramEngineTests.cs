@@ -34,6 +34,14 @@ namespace AnagramAlgorithm.Tests
 
             Assert.Equal(2, matches.Count);
         }
+
+        [Fact]
+        public void Find_Simple_Anagram_Allowed_Punctuation()
+        {
+            List<string> matches = AnagramEngine.Find("cat's", new List<string> { "at", " bla", "rah", "ct", "cts", "ca's" }); // array?
+
+            Assert.Equal(4, matches.Count);
+        }
     }
 
     // test casing
