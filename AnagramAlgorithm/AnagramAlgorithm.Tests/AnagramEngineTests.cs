@@ -20,9 +20,17 @@ namespace AnagramAlgorithm.Tests
     public class AnagramEngineTests
     {
         [Fact]
-        public void FindASimpleAnagram()
+        public void Find_Simple_Anagram()
         {
             List<string> matches = AnagramEngine.Find("cat", new List<string> {"at", " bla", "rah", "ct"}); // array?
+
+            Assert.Equal(2, matches.Count);
+        }
+
+        [Fact]
+        public void Find_Simple_Anagram_Uppercase()
+        {
+            List<string> matches = AnagramEngine.Find("CAT", new List<string> { "at", " bla", "rah", "ct" }); // array?
 
             Assert.Equal(2, matches.Count);
         }

@@ -10,12 +10,8 @@ namespace AlgorithmEngine
     {
         public static List<string> Find(string seedWord, List<string> wordList)
         {
-
             var matchedWords = new List<string>();
             
-
-            
-
             foreach (var word in wordList)
             {
 
@@ -26,7 +22,7 @@ namespace AlgorithmEngine
                 foreach (var seedChar in seedChars)
                 {
 
-                    if (!seedWord.Contains(seedChar))
+                    if (!seedWord.ToLower().Contains(seedChar))
                     {
                         match = false;
                     }
