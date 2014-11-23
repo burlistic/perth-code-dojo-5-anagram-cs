@@ -25,24 +25,17 @@ namespace AlgorithmEngine
 
                 if (seedWordCopy != wordLower)
                 {
-
-                    foreach (var wordChar in wordChars)
+                    foreach (var wordChar in wordChars.Where(wordChar => Regex.IsMatch(wordChar.ToString(), @"^[a-zA-Z]+$")))
                     {
-
-                        //ignore special characters
-                        if (Regex.IsMatch(wordChar.ToString(), @"^[a-zA-Z]+$"))
+                        if (!seedWordCopy.Contains(wordChar))
                         {
-                            if (!seedWordCopy.Contains(wordChar))
-                            {
-                                match = false;
-                                //break;
-                            }
-                            else
-                            {
-                                seedWordCopy = seedWordCopy.Remove(seedWordCopy.IndexOf(wordChar), 1);
-                            }
+                            match = false;
+                            //break;
                         }
-
+                        else
+                        {
+                            seedWordCopy = seedWordCopy.Remove(seedWordCopy.IndexOf(wordChar), 1);
+                        }
                     }
 
                     if (match)
@@ -50,7 +43,6 @@ namespace AlgorithmEngine
                         matchedWords.Add(word);
                     }
                 }
-
             }
 
             return matchedWords;
