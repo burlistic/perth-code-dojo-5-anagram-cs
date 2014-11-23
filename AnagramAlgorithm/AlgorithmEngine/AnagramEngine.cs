@@ -22,28 +22,33 @@ namespace AlgorithmEngine
 
                 var wordChars = wordLower.ToCharArray();
 
-                foreach (var wordChar in wordChars)
+
+                if (seedWordCopy != wordLower)
                 {
 
-                    //ignore special characters
-                    if (Regex.IsMatch(wordChar.ToString(), @"^[a-zA-Z]+$"))
+                    foreach (var wordChar in wordChars)
                     {
-                        if (!seedWordCopy.Contains(wordChar))
+
+                        //ignore special characters
+                        if (Regex.IsMatch(wordChar.ToString(), @"^[a-zA-Z]+$"))
                         {
-                            match = false;
-                            //break;
+                            if (!seedWordCopy.Contains(wordChar))
+                            {
+                                match = false;
+                                //break;
+                            }
+                            else
+                            {
+                                seedWordCopy = seedWordCopy.Remove(seedWordCopy.IndexOf(wordChar), 1);
+                            }
                         }
-                        else
-                        {
-                            seedWordCopy = seedWordCopy.Remove(seedWordCopy.IndexOf(wordChar), 1);
-                        }
+
                     }
 
-                }
-
-                if (match)
-                {
-                    matchedWords.Add(word);
+                    if (match)
+                    {
+                        matchedWords.Add(word);
+                    }
                 }
 
             }
