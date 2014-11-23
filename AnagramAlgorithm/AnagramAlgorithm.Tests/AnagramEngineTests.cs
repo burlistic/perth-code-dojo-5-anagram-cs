@@ -15,7 +15,7 @@ namespace AnagramAlgorithm.Tests
         [Fact]
         public void Find_Simple_Anagram()
         {
-            List<string> matches = AnagramEngine.Find("cat", new List<string> {"at", " bla", "rah", "ct"});
+            List<string> matches = AnagramEngine.Find("cat", new List<string> {"at", "bla", "rah", "ct"});
 
             Assert.Equal(2, matches.Count);
         }
@@ -23,7 +23,15 @@ namespace AnagramAlgorithm.Tests
         [Fact]
         public void Find_Simple_Anagram_Uppercase()
         {
-            List<string> matches = AnagramEngine.Find("CAT", new List<string> { "at", " bla", "rah", "ct" });
+            List<string> matches = AnagramEngine.Find("CAT", new List<string> { "at", "bla", "rah", "ct" });
+
+            Assert.Equal(2, matches.Count);
+        }
+
+        [Fact]
+        public void Find_Simple_Anagram_Ignore_Spaces_And_Special_Characters()
+        {
+            List<string> matches = AnagramEngine.Find("CATS", new List<string> { "at", " bla", "rah", "ct's" });
 
             Assert.Equal(2, matches.Count);
         }
@@ -31,9 +39,17 @@ namespace AnagramAlgorithm.Tests
         [Fact]
         public void Find_Simple_Anagram_Allowed_Punctuation()
         {
-            List<string> matches = AnagramEngine.Find("cat's", new List<string> { "at", " bla", "rah", "ct", "cts", "ca's" });
+            List<string> matches = AnagramEngine.Find("cat's", new List<string> { "at", "bla", "rah", "ct", "cts", "ca's" });
 
             Assert.Equal(4, matches.Count);
+        }
+
+        [Fact]
+        public void Find_Simple_Anagram_No_Character_Repetition()
+        {
+            List<string> matches = AnagramEngine.Find("Lucas", new List<string> { "calculas" });
+
+            Assert.Equal(0, matches.Count);
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AlgorithmEngine
@@ -14,17 +15,28 @@ namespace AlgorithmEngine
             
             foreach (var word in wordList)
             {
+                var wordLower = word.ToLower();
+                var seedWordCopy = seedWord.ToLower();
 
                 var match = true;
 
-                var seedChars = word.ToCharArray();
+                var wordChars = wordLower.ToCharArray();
 
-                foreach (var seedChar in seedChars)
+                foreach (var wordChar in wordChars)
                 {
 
-                    if (!seedWord.ToLower().Contains(seedChar))
+                    //ignore special characters
+                    if (Regex.IsMatch(wordChar.ToString(), @"^[a-zA-Z]+$"))
                     {
-                        match = false;
+                        if (!seedWordCopy.Contains(wordChar))
+                        {
+                            match = false;
+                            //break;
+                        }
+                        else
+                        {
+                            seedWordCopy = seedWordCopy.Remove(seedWordCopy.IndexOf(wordChar), 1);
+                        }
                     }
 
                 }
