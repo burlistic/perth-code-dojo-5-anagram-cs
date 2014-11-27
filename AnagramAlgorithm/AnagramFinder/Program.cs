@@ -27,6 +27,11 @@ namespace AnagramApp
 
             matches = matches.OrderBy(m => m.Length).ToList();
 
+            if (matches.Count == 0)
+            {
+                Console.WriteLine("No matches found!");
+            }
+
             foreach (var match in matches)
             {
                 Console.Write(match + " ");

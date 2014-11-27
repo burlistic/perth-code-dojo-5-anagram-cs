@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramApp", "AnagramApp\An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramFinder", "AnagramFinder\AnagramFinder.csproj", "{2C7E66A1-8AE9-4CF2-AF4D-AD20C0BD2688}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramAppMarkFExample", "AnagramAppMarkFExample\AnagramAppMarkFExample.csproj", "{A6BAF973-8088-4D16-AC2F-16D00A731D53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{2C7E66A1-8AE9-4CF2-AF4D-AD20C0BD2688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7E66A1-8AE9-4CF2-AF4D-AD20C0BD2688}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7E66A1-8AE9-4CF2-AF4D-AD20C0BD2688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BAF973-8088-4D16-AC2F-16D00A731D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BAF973-8088-4D16-AC2F-16D00A731D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BAF973-8088-4D16-AC2F-16D00A731D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BAF973-8088-4D16-AC2F-16D00A731D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
