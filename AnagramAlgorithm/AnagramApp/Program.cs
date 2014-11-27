@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AlgorithmEngine;
 
@@ -16,10 +17,11 @@ namespace AnagramApp
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            IEnumerable<string> words = WordListLoader.Load(@"D:\Projects\perth-code-dojo-5-anagram-algorithm\AnagramAlgorithm\AlgorithmEngine\App_Data\wordlist.txt")
-                .Where(w => w.Length > 3);
+            //Refactoring filtering down
 
-           
+            IEnumerable<string> words = WordListLoader.Load(@"D:\Projects\perth-code-dojo-5-anagram-algorithm\AnagramAlgorithm\AlgorithmEngine\App_Data\wordlist.txt")
+                .Where(w => w.Length >= 3 &&
+                Regex.IsMatch(w.ToString(), @"^[a-z]+$"));
 
             foreach (var word in words)
             {
